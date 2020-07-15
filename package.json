@@ -1,0 +1,46 @@
+{
+  "name": "@romger/react-input",
+  "version": "1.0.0",
+  "description": "@romger/react-input",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rgerasimovich/romger-react-input"
+  },
+  "author": "Romger",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "dependencies": {
+    "@thewhite/react-flex-layout": "^1.0.2",
+    "@types/react": "16.9.5",
+    "classnames": ">=2.2.5",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-imask": "^6.0.3",
+    "react-svg": "^7.2.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "babel-eslint": "^8.2.2",
+    "del": "^3.0.0",
+    "eslint-plugin-react": "^7.19.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-sass": "^3.0.0",
+    "gulp-sourcemaps": "^2.5.0",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "^3.0.8",
+    "vinyl-buffer": "^1.0.1"
+  }
+}
