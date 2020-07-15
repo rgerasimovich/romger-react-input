@@ -1,6 +1,6 @@
 {
   "name": "@romger/react-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "@romger/react-input",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@thewhite/react-flex-layout": "^1.0.2",
+    "@romger/react-flex-layout": "1.0.0",
     "@types/react": "16.9.5",
     "classnames": ">=2.2.5",
     "react": "16.8.6",

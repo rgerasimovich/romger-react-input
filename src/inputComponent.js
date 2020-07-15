@@ -1,4 +1,4 @@
-import { FlexBox } from '@thewhite/react-flex-layout';
+import { FlexBox } from '@romger/react-flex-layout';
 import React from 'react';
 import ReactSVG from 'react-svg';
 import classnames from 'classnames';
