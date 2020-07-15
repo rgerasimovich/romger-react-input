@@ -4,7 +4,7 @@ import ReactSVG from 'react-svg';
 import classnames from 'classnames';
 import { IMaskInput } from 'react-imask';
 
-class RomgerReactInput extends React.Component {
+class RgReactInput extends React.Component {
     constructor(props) {
         super(props);
 
@@ -631,4 +631,4 @@ class RomgerReactInput extends React.Component {
     }
 }
 
-export default RomgerReactInput;
+export default RgReactInput;

@@ -1,3 +1,3 @@
-import WsReactInput from './inputComponent';
+import RgReactInput from './inputComponent';
 
-export { WsReactInput };
+export { RgReactInput };

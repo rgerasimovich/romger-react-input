@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface RomgerReactInputProps {
+interface RgReactInputProps {
     value?: string | number;
     error?: string | null;
     compareValue?: string;
@@ -51,4 +51,4 @@ interface RomgerReactInputProps {
     dataTemplate?: string;
 }
 
-export class RomgerReactInput extends React.Component<RomgerReactInputProps, any> {}
+export class RgReactInput extends React.Component<RgReactInputProps, any> {}
