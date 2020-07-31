@@ -49,7 +49,7 @@ class RgReactInput extends React.Component {
                 error: newProps.error
             });
         }
-        if (this.props.compareValue && this.props.compareValue !== newProps.compareValue) {
+        if (this.props.validCompareEmail && this.props.compareValue && this.props.compareValue !== newProps.compareValue) {
             this._validationCompareEmail(newProps.value, newProps);
         }
     }
@@ -395,6 +395,45 @@ class RgReactInput extends React.Component {
         }
     }
 
+    /**
+     * Что делать при попытке вставить что-то в поле
+     * @param {*} e
+     */
+    pastePrevent(e) {
+        if (!!this.props.pastePrevent && !this.props.phoneValidation) {
+            return e.preventDefault();
+        }
+        if (!!this.props.phoneValidation) {
+            return this.pastePhone(e);
+        }
+    }
+
+    pastePhone(e) {
+        try {
+            let pasteValue = e.clipboardData.getData('Text');
+            pasteValue = pasteValue.replace(/\D+/g,'');
+            const maxLengthPhone = 10;
+            pasteValue = pasteValue.substring(pasteValue.length - maxLengthPhone < 0 ? 0 : pasteValue.length - maxLengthPhone);
+            let mask = this.phoneMask;
+            let newValue = [];
+            let indexFromPasteValue = 0;
+            for (let i = 0; i< mask.length; i++) {
+                if (mask[i] === '0' && indexFromPasteValue < pasteValue.length) {
+                    newValue.push(pasteValue[indexFromPasteValue]);
+                    indexFromPasteValue++;
+                }
+                else if(mask[i] !== '{' && mask[i] !== '}') {
+                    newValue.push(mask[i]);
+                }
+            }
+            e.preventDefault();
+            this.validationField({target: {value: newValue.join('')}});
+            return false;
+        } catch(e) {
+            //
+        }
+    }
+
     render() {
         const { searchMode, label, value, placeholder, required, componentClass, maxSize, disabled, iconSvg, iconHTML, iconCallback, topLabel, widthLabel } = this.props;
         let mask;
@@ -486,6 +525,7 @@ class RgReactInput extends React.Component {
                                     placeholder={placeholder ? placeholder : ''}
                                     disabled={disabled}
                                     lazy={!!disabled}
+                                    onPaste={(event) => this.pastePrevent(event)}
                                 />
                                 :
                                 this.props.textarea || this.props.componentClass === 'textarea'
@@ -504,7 +544,7 @@ class RgReactInput extends React.Component {
                                         onCopy={(event) => this.props.copyPrevent ? event.preventDefault() : null}
                                         onFocus={() => this.props.onFocus ? this.props.onFocus() : null}
                                         onKeyPress={(e) => this.onKeyPressHandler(e)}
-                                        onPaste={(event) => this.props.pastePrevent ? event.preventDefault() : null}
+                                        onPaste={(event) => this.pastePrevent(event)}
                                         placeholder={placeholder ? placeholder : ''}
                                         rows={this.props.rows ? this.props.rows : 2}
                                         value={value ? value : ''}
@@ -526,7 +566,7 @@ class RgReactInput extends React.Component {
                                         onCopy={(event) => this.props.copyPrevent ? event.preventDefault() : null}
                                         onFocus={() => this.props.onFocus ? this.props.onFocus() : null}
                                         onKeyPress={(e) => this.onKeyPressHandler(e)}
-                                        onPaste={(event) => this.props.pastePrevent ? event.preventDefault() : null}
+                                        onPaste={(event) => this.pastePrevent(event)}
                                         placeholder={placeholder ? placeholder : ''}
                                         type={type}
                                         value={value ? value : ''}
